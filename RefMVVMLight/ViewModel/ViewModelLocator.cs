@@ -25,21 +25,28 @@ namespace RefMVVMLight.ViewModel
         {
             ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
 
-
-            SimpleIoc.Default.Register<MainViewModel>();
+            SimpleIoc.Default.Register<ReceiverViewModel>();
+            SimpleIoc.Default.Register<SenderViewModel>();
         }
 
-        public MainViewModel Main
+        public SenderViewModel SenderViewModel
         {
             get
             {
-                return ServiceLocator.Current.GetInstance<MainViewModel>();
+                return ServiceLocator.Current.GetInstance<SenderViewModel>();
+            }
+        }
+
+        public ReceiverViewModel ReceiverViewModel
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<ReceiverViewModel>();
             }
         }
         
         public static void Cleanup()
         {
-            // TODO Clear the ViewModels
         }
     }
 }
